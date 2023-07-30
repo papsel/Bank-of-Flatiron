@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Transaction from "./Transaction";
 
 function AddTransactionForm() {
   const [date, setDate] = useState("")
@@ -7,7 +7,7 @@ function AddTransactionForm() {
   const [category, setCategory] = useState("")
   const [amount, setAmount] = useState("")
   function handleSubmit(e) {
-    fetch("https://api.npoint.io/4d7247974c2317590b78/transactions", {
+    fetch("http://localhost:3001/transactions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

@@ -18,12 +18,12 @@ Filter transactions by typing into the search bar. Only transactions with a desc
 
 ### Deployment
 1. Run `npm install` in your terminal.
-2. Run `npm run server`. This will run your backend on port `3000`.
-3. In a new terminal, run `npm start`. This will run your React app on port `3001`.
+2. Run `npm run server`. This will run your backend on port `3001`.
+3. In a new terminal, run `npm start`. This will run your React app on port `3000`.
 
 Make sure to open
 [http://localhost:3000/transactions](http://localhost:3000/transactions) in the
 browser to verify that your backend is working before you proceed!
-
+The base URL for your backend is: `http://localhost:3001`
 
 

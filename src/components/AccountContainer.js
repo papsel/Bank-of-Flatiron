@@ -7,7 +7,7 @@ function AccountContainer() {
   const [transaction, setTransaction] = useState([])
   const [query, setQuery] = useState("")
   useEffect(() => {
-    fetch("https://api.npoint.io/4d7247974c2317590b78/transactions?q=" + query)
+    fetch("http://localhost:8001/transactions?q=" + query)
       .then((resp) => resp.json())
       .then(transaction => setTransaction(transaction))
   }, [query])
