@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import TransactionList from "./TransactionList";
 import Search from "./Search";
 import AddTransactionForm from "./AddTransactionForm";
-import transactions from "./Transactions";
+import transactions, { addTransaction } from "./Transaction";
 
 function AccountContainer() {
-  const [transaction, setTransaction] = useState(transactions);
   const [query, setQuery] = useState("");
 
   function handleSearch(e) {
@@ -13,14 +12,19 @@ function AccountContainer() {
   }
 
   // Filter the transactions based on the query
-  const filteredTransactions = transaction.filter((t) =>
+  const filteredTransactions = transactions.filter((t) =>
     t.description.toLowerCase().includes(query.toLowerCase())
   );
+
+  function handleAddTransaction(newTransaction) {
+    addTransaction(newTransaction);
+    alert("Added successfully!");
+  }
 
   return (
     <div>
       <Search handleSearch={handleSearch} />
-      <AddTransactionForm />
+      <AddTransactionForm onAddTransaction={handleAddTransaction} />
       <TransactionList transactions={filteredTransactions} />
     </div>
   );
