@@ -97,8 +97,13 @@
       "category": "Food",
       "amount": "3000",
       "id": 14
+    },
+    {
+      "date": "2000-02-14",
+      "description": "birtthday party",
+      "category": "entertainment",
+      "amount": "90",
+      "id": 15
     }
   ]
- }
- 
- 
+}
