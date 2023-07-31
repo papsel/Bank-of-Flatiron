@@ -1,33 +1,44 @@
 import React, { useState } from "react";
-import transactions, { addTransaction } from "./Transaction";
 
-function AddTransactionForm() {
+function AddTransactionForm({ onAddTransaction }) {
   const [date, setDate] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
 
   function handleSubmit(e) {
-    e.preventDefault(); 
+    e.preventDefault();
 
-   
+  
     const newTransaction = {
-      date: date,
-      description: description,
-      category: category,
+      date,
+      description,
+      category,
       amount: parseFloat(amount),
     };
 
-   
-    addTransaction(newTransaction);
+  
+    fetch("/api/addTransaction", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newTransaction),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        
+        onAddTransaction(data);
 
-   
-    setDate("");
-    setDescription("");
-    setCategory("");
-    setAmount("");
-
-    alert("Added successfully");
+        // Clear form fields after adding the transaction
+        setDate("");
+        setDescription("");
+        setCategory("");
+        setAmount("");
+      })
+      .catch((error) => {
+        console.error("Error adding transaction:", error);
+      });
   }
 
   return (
