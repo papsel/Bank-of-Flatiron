@@ -11,7 +11,7 @@ function AccountContainer() {
     setQuery(e.target.value);
   }
 
-  // Filter the transactions based on the query
+  
   const filteredTransactions = transactions.filter((t) =>
     t.description.toLowerCase().includes(query.toLowerCase())
   );
